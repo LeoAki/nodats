@@ -12,8 +12,8 @@ class Bootstrap
 {
     public static function run(Request $peticion)
     {
-        $controller = $peticion->getControlador() . 'Controller';
-        $rutaControlador = ROOT . 'controllers' . DS . $controller . '.php';
+        $controller = $peticion->getControlador() . 'Controller';   //  ejem:  indexController o postController
+        $rutaControlador = ROOT . 'controllers' . DS . $controller . '.php';  // ejem:  .../controllers/indexController.php
         $metodo = $peticion->getMetodo();
         $args = $peticion->getArgs();
         
@@ -24,7 +24,7 @@ class Bootstrap
             if(is_callable(array($controller, $metodo))){
                 $metodo = $peticion->getMetodo();
             }
-            else{
+          	else{
                 $metodo = 'index';
             }
             

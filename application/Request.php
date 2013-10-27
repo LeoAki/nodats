@@ -16,9 +16,11 @@ class Request
     
     public function __construct() {
         if(isset($_GET['url'])){
-            $url = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_URL);
+            $url = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_URL); //  
             $url = explode('/', $url);
-            $url = array_filter($url);
+            $url = array_filter($url);  // elimina los elementos vacios
+           
+           
             
             $this->_controlador = strtolower(array_shift($url));
             $this->_metodo = strtolower(array_shift($url));
@@ -26,11 +28,11 @@ class Request
         }       
         
         if(!$this->_controlador){
-            $this->_controlador = DEFAULT_CONTROLLER;
+            $this->_controlador = DEFAULT_CONTROLLER;   // index
         }
         
         if(!$this->_metodo){
-            $this->_metodo = 'index';
+            $this->_metodo = 'index'; 
         }
         
         if(!isset($this->_argumentos)){

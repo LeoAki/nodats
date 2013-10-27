@@ -7,13 +7,22 @@ class indexController extends Controller
     }
     
     public function index()
-    {
-        $post = $this->loadModel('post');
-        
-        $this->_view->posts = $post->getPosts();
-        
+    {                
         $this->_view->titulo = 'Portada';
-        $this->_view->renderizar('index', 'inicio');
+        $this->_view->renderizar('login');
+    }
+    
+    public function login()
+    {                
+        $this->_view->titulo = 'Inicio de sesion';
+        //$this->_view->renderizar('login');
+        $this->redireccionar('index/home');
+    }
+    
+    public function home()
+    {                
+        $this->_view->titulo = 'Portada';
+        $this->_view->renderizar('index','home');
     }
 }
 
