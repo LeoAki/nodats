@@ -16,7 +16,8 @@ class indexController extends Controller
     {                
         $this->_view->titulo = 'Inicio de sesion';
         //$this->_view->renderizar('login');
-        $this->redireccionar('index/home');
+        //$this->redireccionar('index/home');
+        $this->_view->renderizar('index','home');
     }
     
     public function home()
