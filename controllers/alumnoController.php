@@ -4,7 +4,7 @@
  *
  * @author aquino
  */
-class cursoController extends Controller
+class alumnoController extends Controller
 {
     public function __construct() {
         parent::__construct();
@@ -21,7 +21,7 @@ class cursoController extends Controller
         $this->_view->titulo = 'Registro de Cursos';
         $this->_view->setJS(array('nuevo'));
         $this->setMensaje(array(
-            'tipo' => 'success',
+            'tipo' => 'error',
             'texto' => 'Registro Grabado con exito'
         ));
         $this->_view->renderizar('nuevo','home');        
@@ -35,7 +35,7 @@ class cursoController extends Controller
         $this->_view->titulo = 'Edición de Cursos';
         $this->_view->setJS(array('editar'));
         $this->setMensaje(array(
-            'tipo' => 'success',
+            'tipo' => 'error',
             'texto' => 'Registro modificado con exito'
         ));
         $this->_view->renderizar('editar','home');
