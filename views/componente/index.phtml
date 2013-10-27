@@ -1,0 +1,51 @@
+<div class="row-fluid">
+    <div class="span12">
+        <? if(isset($this->mensaje)): ?>
+        <div class="alert alert-<?= $this->mensaje['tipo']; ?>"><?= $this->mensaje['texto']; ?><a href="#" class="close" data-dismiss="alert">×</a></div>
+        <? endif; ?>
+        <div class="widget-box">
+            <div class="widget-title">
+                <span class="icon">
+                    <i class="icon-align-justify"></i>									
+                </span>
+                <h5><?= isset($this->titulo)?$this->titulo:''; ?></h5>
+            </div>
+            <div class="widget-content nopadding">
+                <table class="table table-bordered table-striped data-table dataTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Sinature</th>
+                            <th>Bimestre</th>
+                            <th>Componente</th>
+                            <th>Criterios</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>					
+                        <!-- AQUI EL WHILE -->
+                        <tr>
+                            <td></td>
+                            <td></td>                            
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a href="#editar" title="Editar"><i class="icon-edit"></i></a>
+                                <a href="#eliminar" title="Eliminar"><i class="icon-trash"></i></a>
+                                <a href="#criterios" title="Ver Criterios"><i class="icon-calendar"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <div class="pagination">
+                    <ul>
+                        <!-- AQUI EL CODIGO DE PAGINACION-->
+                    </ul>
+                </div>
+            </div>
+        </div>			
+    </div>
+</div>

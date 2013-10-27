@@ -56,6 +56,13 @@
 						<li><a href="<?= BASE_URL; ?>curso/index">Consutar</a></li>						
 					</ul>
 				</li>
+				<li class="submenu">
+					<a href="#"><i class="icon icon-th-list"></i> <span>Componente</span> <span class="label">2</span></a>
+					<ul>
+						<li><a href="<?= BASE_URL; ?>componente/nuevo">Registrar</a></li>
+						<li><a href="<?= BASE_URL; ?>componente/index">Consutar</a></li>						
+					</ul>
+				</li>                                
 				<li><a href="interface.php"><i class="icon icon-pencil"></i> <span>Docentes</span></a></li>
 				<li class="submenu"> 
 					<a href="#"><i class="icon icon-file"></i> <span>Consolidados</span> <span class="label">4</span></a>

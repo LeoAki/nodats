@@ -1,0 +1,48 @@
+<div class="row-fluid">
+    <div class="span12">
+        <div class="widget-box">
+            <div class="widget-title">
+                <span class="icon">
+                    <i class="icon-align-justify"></i>									
+                </span>
+                <h5><?= isset($this->titulo)?$this->titulo:''; ?></h5>
+            </div>
+            <div class="widget-content nopadding">
+                <form class="form-horizontal" method="post" action="<?= BASE_URL; ?>componente/grabar" name="form" id="form" novalidate="novalidate">
+                    <div class="control-group">
+                        <label class="control-label">Sinature</label>
+                        <div class="controls">
+                            <input type="text" name="sinature" id="sinature">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Bimestre</label>
+                        <div class="controls">
+                            <input type="text" name="bimestre" id="bimestre">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Número</label>
+                        <div class="controls">
+                            <input type="text" name="nrocomponente" id="nrocomponente">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Componente</label>
+                        <div class="controls">
+                            <input type="text" name="componente" id="componente">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Total Criterios</label>
+                        <div class="controls">
+                            <input type="text" name="criterios" id="criterios">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <input type="submit" value="Grabar" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>			
+    </div>
