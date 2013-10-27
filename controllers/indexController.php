@@ -8,8 +8,10 @@ class indexController extends Controller
     
     public function index()
     {                
+//        $this->_view->titulo = 'Portada';
+//        $this->_view->renderizar('login');
         $this->_view->titulo = 'Portada';
-        $this->_view->renderizar('login');
+        $this->_view->renderizar('index','home');
     }
     
     public function login()
