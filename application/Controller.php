@@ -95,9 +95,20 @@ abstract class Controller
 			return $_POST[$clave];
 		}
 	}
+        
+        protected function getMensaje(){
+            $mensaje = null;
+            if(isset($_COOKIE['mensaje'])){
+                $mensaje = $_COOKIE['mensaje'];
+                unset($_COOKIE['mensaje']);
+            }
+            return $mensaje;
+        }
 
-
-	
+        protected function setMensaje(array $mensaje){
+            setcookie('mensaje[tipo]', $mensaje['tipo']);
+            setcookie('mensaje[texto]', $mensaje['texto']);
+        }
 
 }
 

@@ -3,7 +3,7 @@
 	
 
 <head>
-		<title>Unicorn Admin</title>
+		<title><?= isset($this->titulo)?$this->titulo:''; ?></title>
 		<meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="<?= BASE_URL; ?>public/css/bootstrap.min.css" />
@@ -45,11 +45,17 @@
 				<li class="submenu">
 					<a href="#"><i class="icon icon-th-list"></i> <span>Alumnos</span> <span class="label">2</span></a>
 					<ul>
-						<li><a href="form-common.php">Registrar</a></li>
-						<li><a href="form-validation.php">Consutar</a></li>						
+						<li><a href="<?= BASE_URL; ?>alumno/nuevo">Registrar</a></li>
+						<li><a href="<?= BASE_URL; ?>alumno/index">Consutar</a></li>						
 					</ul>
 				</li>
-				<li><a href="buttons.php"><i class="icon icon-tint"></i> <span>Cursos</span></a></li>
+				<li class="submenu">
+					<a href="#"><i class="icon icon-th-list"></i> <span>Cursos</span> <span class="label">2</span></a>
+					<ul>
+						<li><a href="<?= BASE_URL; ?>curso/nuevo">Registrar</a></li>
+						<li><a href="<?= BASE_URL; ?>curso/index">Consutar</a></li>						
+					</ul>
+				</li>
 				<li><a href="interface.php"><i class="icon icon-pencil"></i> <span>Docentes</span></a></li>
 				<li class="submenu"> 
 					<a href="#"><i class="icon icon-file"></i> <span>Consolidados</span> <span class="label">4</span></a>
