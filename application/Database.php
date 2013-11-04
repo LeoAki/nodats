@@ -6,14 +6,16 @@
  * -------------------------------------
  */
 
-class Database extends mysqli
+class Database extends PDO
 {
 	public $_paginacion = array();
 
 
 	public function __construct() {
-		parent::__construct(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-		 
+            //parent::__construct(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+	    parent::__construct(sprintf('mysql:host=%s;dbname=%s',DB_HOST, DB_NAME)
+                    , DB_USER, DB_PASS,
+                    array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
 	}
 
 	/*
@@ -63,7 +65,7 @@ class Database extends mysqli
 
 
 
-		/* Define las otras variables de la paginación */
+		/* Define las otras variables de la paginaciï¿½n */
 		$this->_paginacion['actual'] = $pagina;
 		$this->_paginacion['total'] = $total;
 

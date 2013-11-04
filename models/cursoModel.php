@@ -12,16 +12,19 @@ class cursoModel extends Model{
     
     public function Listarcursos() {
         $cursos=  $this->_db->query('select * from Curso');
-        return $cursos->fetchall();
+        return $cursos->fetchall(PDO::FETCH_CLASS);
     }
     
-    public function Grabar($codigo,$curso) {
-        $this->_db->prepare("Call Sp_Curso(:codigo,:curso)")
-                ->execute(
-                        array(
-                            ':codigo'=>$codigo,
-                            ':curso'=>$curso
-                        ));
+    public function buscarPorCodigo($codigo) {
+        $cursos =  $this->_db->query("select * from Curso WHERE codigo = $codigo");
+        //$cursos->bindValue('codigo', $codigo);
+        return $cursos->fetchObject();
+    }
+    
+    public function Grabar(array $datos) {
+        $stmt = $this->_db->prepare("Call Sp_Curso(:codigo,:curso)");
+        if(!$stmt) return false;
+        return $stmt->execute($datos);
     }
     
     public function delete($codigo) {
