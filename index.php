@@ -9,6 +9,8 @@ define('APP_PATH', ROOT . 'application' . DS);
 
 require_once APP_PATH . 'Config.php';
 require_once APP_PATH . 'Autoload.php';
+define('ANIO_ESCOLAR', '2013');
+define('BIM_ACTUAL', '1');
 /*
 require_once APP_PATH . 'Request.php';
 require_once APP_PATH . 'Bootstrap.php';
