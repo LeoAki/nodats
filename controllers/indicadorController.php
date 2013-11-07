@@ -32,7 +32,7 @@ class indicadorController extends Controller
 
     public function sinaturas($nivel='',$grado='') {
         $model= $this->loadModel('indicador');
-        $this->_view->titulo='Asignaturas del'.$grado.' de '.$nivel;
+        $this->_view->titulo='Asignaturas del '.$grado.' grado/años del nivel '.$nivel;
         if($nivel!= '' & $grado!= ''):
             switch ($nivel) {
                 case 'inicial': $this->_view->areas=$model->ListaAsignaturasbynivelbygrado('inicial',$grado); break;

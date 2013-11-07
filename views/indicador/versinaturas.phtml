@@ -11,28 +11,33 @@
                 <table class="table table-bordered table-striped data-table dataTable">
                     <thead>
                         <tr>
-                            <th>Ver</th>
                             <th>Asignatura</th>
+                            <th>I B</th>
+                            <th>II B</th>
+                            <th>III B</th>
+                            <th>IV B</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!-- AQUI EL WHILE -->
                         <?php foreach($this->areas as $area): ?>
                         <tr>
-                            <td><?php echo $area->codigo;?></td>
-                            <td><?php echo $area->asinatura;?></td>
-                            
+                            <td><?=$area->asinatura;?></td>
+                            <td class='center'><center><a TARGET = '_blank' href='<?= BASE_URL; ?>indicador/criterio/<?=$area->codigo;?>/1'>Ver Indicadores</a></center></td>
+                            <td class='center'><center><a TARGET = '_blank' href='<?= BASE_URL; ?>indicador/criterio/<?=$area->codigo;?>/2'>Ver Indicadores</a></center></td>
+                            <td class='center'><center><a TARGET = '_blank' href='<?= BASE_URL; ?>indicador/criterio/<?=$area->codigo;?>/3'>Ver Indicadores</a></center></td>
+                            <td class='center'><center><a TARGET = '_blank' href='<?= BASE_URL; ?>indicador/criterio/<?=$area->codigo;?>/4'>Ver Indicadores</a></center></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-
 
                 <div class="pagination">
                     <ul>
                         <!-- AQUI EL CODIGO DE PAGINACION-->
                     </ul>
                 </div>
+<?='Bimestre Actual: '.BIM_ACTUAL;?>
             </div>
         </div>
     </div>

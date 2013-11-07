@@ -35,9 +35,9 @@ class indicadorModel extends Model{
 
     public function ListaAsignaturasbynivelbygrado($nivel,$grado) {
         echo "select codigo,asinatura from 
-            descripcionsinature where nomnivel=".$nivel." and  grado like '%".$grado."%';";
+            descripcionsinature where nomnivel='".$nivel."' and  grado like '%".$grado."%';";
         $list=$this->_db->query("select codigo,asinatura from 
-            descripcionsinature where nomnivel=".$nivel." and  grado like '%".$grado."%';");
+            descripcionsinature where nomnivel='".$nivel."' and  grado like '%".$grado."%';");
         return $list->fetchall(PDO::FETCH_CLASS);
     }
     
