@@ -13,7 +13,7 @@ class indicadorModel extends Model{
     public function listbycomponent($idemcomponent) {
         $lis=  $this->_db->query('select codigo,idcomponente,nro_criterio,criterio,peso
             from Indicador where codigo='.$idem);
-        return $lis->fetchall();
+        return $lis->fetchall(PDO::FETCH_CLASS);
     }
     
     public function deleteindicadorbycode($idem) {
@@ -31,6 +31,11 @@ class indicadorModel extends Model{
                    ':peso'=>$peso
                ));
        return $this->_db->errno;
+    }
+
+    public function ListaAsignaturasbynivelbygrado($nivel,$grado) {
+        $list=$this->_db->query("select codigo,asinatura from descripcionsinature where nomnivel=".$nivel." and  grado like ('%".$grado."%');");
+        return $list;
     }
     
 }

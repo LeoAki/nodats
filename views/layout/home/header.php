@@ -72,6 +72,14 @@
 						<li><a href="calendar.php">Secundaria</a></li>
 					</ul>
 				</li>
+                                <li class="submenu">
+					<a href="#"><i class="icon icon-book"></i> <span>Indicadores</span> <span class="label">3</span></a>
+					<ul>
+						<li><a href="<?= BASE_URL; ?>indicador/inicial">Nivel-Inicial</a></li>
+						<li><a href="<?= BASE_URL; ?>indicador/primaria">Nivel-Primaria</a></li>
+                                                <li><a href="<?= BASE_URL; ?>indicador/secundaria">Nivel-Secundaria</a></li>
+					</ul>
+				</li>
 			</ul>
 		
 		</div>
