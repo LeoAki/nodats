@@ -44,5 +44,18 @@ class indicadorController extends Controller
         $this->_view->renderizar('versinaturas','home');
         endif;
     }
+    
+    public function criterio($asinaturacode=0,$bimestre=BIM_ACTUAL) {
+        $modelcomponente= $this->loadModel('componente');
+        $this->_view->titulo='Criterios De Evaluación del '.$bimestre.' bimestre';
+        $this->_view->componente=$modelcomponente->listbySinaturebybimestre($asinaturacode,$bimestre);
+        $this->_view->renderizar('listacriterio','home');
+    }
+    
+    public function listindicador($componente) {
+        $modelindicador=  $this->loadModel('indicador');
+        $this->_view->indicador=$modelindicador->listbycomponent($componente);
+        $this->_view->renderizar('listacriterio','home');
+    }
 }
 ?>

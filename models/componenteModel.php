@@ -11,15 +11,24 @@ class componenteModel  extends Model{
     }
     
     public function listbycode($idem) {
-        $lis=  $this->_db->query('select codigo,sinature,bimestre,nrocomponente,componente,total_criterio
+        $lis=  $this->_db->query('select codigo,sinature,bimestre,nrocomponent,componente,total_criterio
             from Component where codigo='.$idem);
-        return $lis->fetchall();
+        return $lis->fetchall(PDO::FETCH_CLASS);
     }
 
     public function listbySinature($sinature){
-        $lis=  $this->_db->query('select codigo,sinature,bimestre,nrocomponente,componente,total_criterio
+        $lis=  $this->_db->query('select codigo,sinature,bimestre,nrocomponent,componente,total_criterio
             from Component where sinature='.$sinature);
-        return $lis->fetchall();
+        return $lis->fetchall(PDO::FETCH_CLASS);
+    }
+    
+    public function listbySinaturebybimestre($sinature,$bimestre){
+//        echo 'select codigo,sinature,bimestre,nrocomponent,componente,total_criterio
+//            from Component where sinature='.$sinature.' and bimestre='.$bimestre;
+        
+        $lis=  $this->_db->query('select codigo,sinature,bimestre,nrocomponent,componente,total_criterio
+            from Component where sinature='.$sinature.' and bimestre='.$bimestre);
+        return $lis->fetchall(PDO::FETCH_CLASS);
     }
     
     public function grabar($code,$sinat,$bim,$nroc,$criterios) {
