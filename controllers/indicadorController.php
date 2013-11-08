@@ -47,6 +47,8 @@ class indicadorController extends Controller
     
     public function criterio($asinaturacode=0,$bimestre=BIM_ACTUAL) {
         $modelcomponente= $this->loadModel('componente');
+        $modelindicador = $this->loadModel('indicador');
+        $this->_view->serviceindicador = $modelindicador;
         $this->_view->titulo='Criterios De Evaluación del '.$bimestre.' bimestre';
         $this->_view->componente=$modelcomponente->listbySinaturebybimestre($asinaturacode,$bimestre);
         $this->_view->renderizar('listacriterio','home');

@@ -11,20 +11,33 @@
 
 
 <table class="table table-hover">
-<?php foreach ($this->componente as $componente) {?>
+<?php foreach ($this->componente as $componente): ?>
     <tr>
         <td style='width:10%'><h4><?=$componente->nrocomponent;?></h4></td>
         <td style='width:90%'><h4><?=$componente->componente;?></h4></td>
     </tr>
     <tr>
         <td colspan=2>
+            <table>
+                <thead><tr><th>Codigo</th><th>Nro Indicador</th><th>Criterio</th><th>Peso</th></tr></thead>
+                <tbody><?php $indicadores = $this->serviceindicador->listbycomponent($componente->codigo); ?>
+                    <?php foreach ($indicadores as $indicador): ?>
+                    <tr>
+                        <td><?=$indicador->codigo;?></td>
+                        <td><?=$indicador->nro_criterio;?></td>
+                        <td><?=$indicador->criterio;?></td>
+                        <td><?=$indicador->peso;?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
             <a href='<?= BASE_URL; ?>indicador/add/<?=$componente->codigo;?>' TARGET = '_blank' title='Agrega un nuevo indicador'><i>AGREGAR UN NUEVO INDICADOR</i></a>
         </td>
     </tr>
     <tr>
         
     </tr>
-<?php }
+<?php endforeach;
 
 //echo "
 //<tr class='success'>
