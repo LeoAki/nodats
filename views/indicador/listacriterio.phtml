@@ -17,61 +17,21 @@
         <td style='width:90%'><h4><?=$componente->componente;?></h4></td>
     </tr>
     <tr>
-        <td colspan=2>
-            <table>
-                <thead><tr><th>Codigo</th><th>Nro Indicador</th><th>Criterio</th><th>Peso</th></tr></thead>
-                <tbody><?php $indicadores = $this->serviceindicador->listbycomponent($componente->codigo); ?>
+        <td colspan="2"><a href='<?= BASE_URL; ?>indicador/add/<?=$componente->codigo;?>' TARGET = '_blank' title='Agrega un nuevo indicador'><i>AGREGAR UN NUEVO INDICADOR</i></a></td>
+    </tr>    
+    <tr>
+<?php $indicadores = $this->serviceindicador->listbycomponent($componente->codigo); ?>
                     <?php foreach ($indicadores as $indicador): ?>
                     <tr>
-                        <td><?=$indicador->codigo;?></td>
-                        <td><?=$indicador->nro_criterio;?></td>
+                        <td><a href="<?= BASE_URL; ?>indicador/editar/<?=$indicador->codigo;?>"><?='<b>'.$componente->nrocomponent.'</b>.'.$indicador->nro_criterio;?></a></td>
                         <td><?=$indicador->criterio;?></td>
-                        <td><?=$indicador->peso;?></td>
                     </tr>
                     <?php endforeach; ?>
-                </tbody>
-            </table>
-            <a href='<?= BASE_URL; ?>indicador/add/<?=$componente->codigo;?>' TARGET = '_blank' title='Agrega un nuevo indicador'><i>AGREGAR UN NUEVO INDICADOR</i></a>
-        </td>
     </tr>
     <tr>
         
     </tr>
-<?php endforeach;
-
-//echo "
-//<tr class='success'>
-//    <td style='width:10%'><h4> $row[1] </h4></td>
-//    <td><h4> $namecom </h4></td>
-//</tr>";
-//echo "
-//<tr>
-//    <td colspan=2>
-//    <a href='regindicador.php?componente=".$row[0]."' TARGET = '_blank' title='Agrega un nuevo indicador'><i>AGREGAR UN NUEVO INDICADOR</i>
-//        <i class='icon icon-plus'></i><a onclick='Indcompo($row[0],1);'>Ver Indicadores</a>
-//    </a>
-//    </td>
-//</tr>";
-//
-//$lista=$INDICAXD->LISTAR($row[0]);
-//while ($row2 = mysql_fetch_array($lista)) {
-//    echo "
-//<tr>
-//    <td>
-//    <a href='regindicador.php?componente= $row[0] &orden= $row2[3] &indicador=$row2[2] &codeindi= $row2[0]' TARGET = '_blank' title='Edita el indicador'>
-//    $row[1] $row2[3]
-//    <i class='icon icon-edit'></i>
-//    </a>
-//    </td>
-//    <td>".$row2[2]."</td>
-//</tr>";
-//}
-//
-//
-//
-//echo $arraya[3]."leo";
-//
-?>
+<?php endforeach;?>
 </table>
 
                 <div class="pagination">

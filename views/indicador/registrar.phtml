@@ -1,0 +1,59 @@
+<div class="row-fluid">
+    <div class="span12">
+        <div class="widget-box">
+            <div class="widget-title">
+                <span class="icon"><i class="icon-align-justify"></i></span>
+                <h5><?= isset($this->titulo)?$this->titulo:''; ?></h5>
+            </div>
+            <div class="widget-content nopadding">
+<center>
+    <form class="form-horizontal" method="post" action="<?= BASE_URL; ?>indicador/procedure" name="form" id="form" novalidate="novalidate">
+
+<div class="control-group" style="display: none;">
+    <div class="controls">
+        <input type='text' id='txtcode' name='txtcode' value="">
+    </div>
+</div>
+    
+<div class="control-group" style="display: none;">
+    <div class="controls">
+        <input type='text' id='txtcomponente' name='txtcomponente' value="<?=$this->componente;?>">
+    </div>
+</div>
+    
+<div class="control-group" style="display: none;">
+    <div class="controls">
+        <input id="txtfiu" name="txtfiu" type="text" value="<?= $this->numero;?>"/>
+    </div>
+</div>
+    
+<div class="control-group" style="display: none;">
+    <div class="controls">
+        <input type='text' id='txtpeso' name='txtpeso' value="1"/>
+    </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label">CRITERIO:  </label>
+    <div class="controls">
+        <input type='text' id='txtcriterio' name='txtcriterio' style='width: 95%'/>
+    </div>
+</div>
+
+<div class="control-group">
+    <div class="controls">
+          <button type="button" id='enviar' >Enviar</button>
+          <button type="reset" class="btn btn-primary pull-center" >Borrar</button>
+    </div>
+</div>
+</form>
+</center>
+
+            <div class="pagination">
+                <ul><!-- AQUI EL CODIGO DE PAGINACION--></ul>
+            </div>
+<?='Bimestre Actual: '.BIM_ACTUAL;?>
+            </div>
+        </div>
+    </div>
+</div>

@@ -12,6 +12,10 @@ class indicadorController extends Controller
 
     public function index() {
         $this->_view->titulo='Indicadores-Elige el Nivel';
+        $this->setMensaje(array(
+            'tipo' => 'success',
+            'texto' => 'Registro Grabado con exito'
+        ));
         $this->_view->renderizar('index','home');
     }
 
@@ -59,5 +63,50 @@ class indicadorController extends Controller
         $this->_view->indicador=$modelindicador->listbycomponent($componente);
         $this->_view->renderizar('listacriterio','home');
     }
+    
+    public function add($componente) {
+        $modelindicador= $this->loadModel('indicador');
+        $count=  $modelindicador->CantIndByComp($componente)+1;
+        $this->_view->titulo='AGREGAR UN NUEVO INDICADOR:::El numero del indicador es: '.$count;
+        $this->_view->numero=$count;
+        $this->_view->componente=$componente;
+        $this->_view->renderizar('registrar','home');
+    }
+    
+    public function procedure() {
+        $model=  $this->loadModel('indicador');
+        if($model->Grabar($this->getParameters())){
+            $this->redireccionar('indicador/criterio/'.$this->getPostParam('txtcomponente'));
+        }
+    }
+    
+    public function getParameters($keys = true) {
+        $parameters = array();
+        if($keys){
+           if ($this->getTexto('code')) {
+                $parameters['code'] = $this->getPostParam('codigo');
+            } else {
+                $parameters['code'] = -1;
+            }
+            $parameters['idcom']=  $this->getPostParam('txtcomponente');
+            $parameters['nro']=  $this->getPostParam('txtfiu');
+            $parameters['crite']=  $this->getPostParam('txtcriterio');
+            $parameters['peso']=  $this->getPostParam('txtpeso');
+            
+        }else{
+            
+            if ($this->getTexto('code')) {
+                $parameters[] = $this->getPostParam('codigo');
+            } else {
+                $parameters[] = -1;
+            }
+            $parameters[]=  $this->getPostParam('txtcomponente');
+            $parameters[]=  $this->getPostParam('txtfiu');
+            $parameters[]=  $this->getPostParam('txtcriterio');
+            $parameters[]=  $this->getPostParam('txtpeso');
+        }
+        return ($parameters);
+    }
+    
 }
 ?>

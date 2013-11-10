@@ -21,24 +21,22 @@ class indicadorModel extends Model{
         $this->_db->query('delete from Indicador where codigo='.$idem);
     }
     
-    public function Grabar($code,$idcom,$nro,$crite,$peso) {
-        $this->_db->prepare('Call Sp_Indicador(:code,:idcom,:nro,:crite,:peso)')
-               ->execute(array(
-                   ':code'=>$code,
-                   ':idcom'=>$idcom,
-                   ':nro'=>$nro,
-                   ':crite'=>$crite,
-                   ':peso'=>$peso
-               ));
-       return $this->_db->errno;
+    public function Grabar(array $datos) {
+        $stmt=$this->_db->prepare('Call Sp_Indicador(:code,:idcom,:nro,:crite,:peso)');
+        if(!$stmt) return FALSE;    
+        return $stmt->execute($datos);
     }
 
     public function ListaAsignaturasbynivelbygrado($nivel,$grado) {
-        echo "select codigo,asinatura from 
-            descripcionsinature where nomnivel='".$nivel."' and  grado like '%".$grado."%';";
         $list=$this->_db->query("select codigo,asinatura from 
             descripcionsinature where nomnivel='".$nivel."' and  grado like '%".$grado."%';");
         return $list->fetchall(PDO::FETCH_CLASS);
+    }
+    
+    public function CantIndByComp($componente) {
+        $componente = (int) $componente;
+        $lis=  $this->_db->query('Select * from Indicador where idcomponente='.$componente);
+        return $lis->rowCount();
     }
     
 }
