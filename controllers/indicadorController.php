@@ -88,6 +88,11 @@ class indicadorController extends Controller
         $this->_view->titulo='EDITAR EL INDICADOR DE CODIGO: '.$codeind;
         $this->_view->bim=$bimestre;
         $this->_view->sinatures=$sinature;
+        $this->_view->setJS(array('editar'));
+        $this->setMensaje(array(
+            'tipo' => 'success',
+            'texto' => 'Registro Grabado con exito'
+        ));         
         $this->_view->renderizar('editar','home');
     }
     

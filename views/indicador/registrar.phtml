@@ -54,8 +54,9 @@
         
 <div class="control-group">
     <div class="controls">
-        <button type="submit" id='enviar' >Enviar</button>
-          <button type="reset" class="btn btn-primary pull-center" >Borrar</button>
+        <button type="submit" id='enviar' class="btn btn-primary btn-sm">Enviar</button>
+          <button type="reset" class="btn btn-primary pull-center" >Limpiar</button>
+          <button type="button" class="btn btn-primary btn-sm" id="buttncan" name="buttncan" onclick="window.location.href='<?= BASE_URL; ?>indicador/criterio/<?=$this->sinatures;?>/<?=$this->bim;?>'">Cancelar</button>
     </div>
 </div>
 </form>
