@@ -17,16 +17,16 @@
         <td style='width:90%'><h4><?=$componente->componente;?></h4></td>
     </tr>
     <tr>
-        <td colspan="2"><a href='<?= BASE_URL; ?>indicador/add/<?=$componente->codigo;?>' TARGET = '_blank' title='Agrega un nuevo indicador'><i>AGREGAR UN NUEVO INDICADOR</i></a></td>
+        <td colspan="2"><a href='<?= BASE_URL; ?>indicador/add/<?=$componente->codigo;?>/<?=$this->bimestre;?>/<?=$this->sinatures;?>' title='Agrega un nuevo indicador'><i>AGREGAR UN NUEVO INDICADOR</i></a></td>
     </tr>    
     <tr>
 <?php $indicadores = $this->serviceindicador->listbycomponent($componente->codigo); ?>
-                    <?php foreach ($indicadores as $indicador): ?>
-                    <tr>
-                        <td><a href="<?= BASE_URL; ?>indicador/editar/<?=$indicador->codigo;?>"><?='<b>'.$componente->nrocomponent.'</b>.'.$indicador->nro_criterio;?></a></td>
-                        <td><?=$indicador->criterio;?></td>
-                    </tr>
-                    <?php endforeach; ?>
+    <?php foreach ($indicadores as $indicador): ?>
+    <tr>
+        <td><a href='<?= BASE_URL; ?>indicador/editar/<?=$indicador->codigo;?>/<?=$this->bimestre;?>/<?=$this->sinatures;?>'><?='<b>'.$componente->nrocomponent.'</b>.'.$indicador->nro_criterio;?></a></td>
+        <td><?=$indicador->criterio;?></td>
+    </tr>
+    <?php endforeach; ?>
     </tr>
     <tr>
         

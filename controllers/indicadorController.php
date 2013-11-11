@@ -54,6 +54,8 @@ class indicadorController extends Controller
         $modelindicador = $this->loadModel('indicador');
         $this->_view->serviceindicador = $modelindicador;
         $this->_view->titulo='Criterios De Evaluación del '.$bimestre.' bimestre';
+        $this->_view->sinatures=$asinaturacode;
+        $this->_view->bimestre=$bimestre;
         $this->_view->componente=$modelcomponente->listbySinaturebybimestre($asinaturacode,$bimestre);
         $this->_view->renderizar('listacriterio','home');
     }
@@ -64,19 +66,35 @@ class indicadorController extends Controller
         $this->_view->renderizar('listacriterio','home');
     }
     
-    public function add($componente) {
+    public function add($componente,$bim,$sina) {
         $modelindicador= $this->loadModel('indicador');
         $count=  $modelindicador->CantIndByComp($componente)+1;
         $this->_view->titulo='AGREGAR UN NUEVO INDICADOR:::El numero del indicador es: '.$count;
+        $this->_view->bim=$bim;
+        $this->_view->sinatures=$sina;
+        $this->_view->setJS(array('registrar'));
+        $this->setMensaje(array(
+            'tipo' => 'success',
+            'texto' => 'Registro Grabado con exito'
+        ));        
         $this->_view->numero=$count;
         $this->_view->componente=$componente;
         $this->_view->renderizar('registrar','home');
     }
     
+    public function editar($codeind,$bimestre,$sinature) {
+        $modelindicador= $this->loadModel('indicador');
+        $this->_view->datosindicador=$modelindicador->listbycode($codeind);
+        $this->_view->titulo='EDITAR EL INDICADOR DE CODIGO: '.$codeind;
+        $this->_view->bim=$bimestre;
+        $this->_view->sinatures=$sinature;
+        $this->_view->renderizar('editar','home');
+    }
+    
     public function procedure() {
         $model=  $this->loadModel('indicador');
         if($model->Grabar($this->getParameters())){
-            $this->redireccionar('indicador/criterio/'.$this->getPostParam('txtcomponente'));
+            $this->redireccionar('indicador/criterio/'.$this->getPostParam('txtsina').'/'.$this->getPostParam('txtbimestre'));
         }
     }
     
@@ -84,7 +102,7 @@ class indicadorController extends Controller
         $parameters = array();
         if($keys){
            if ($this->getTexto('code')) {
-                $parameters['code'] = $this->getPostParam('codigo');
+                $parameters['code'] = $this->getPostParam('txtcode');
             } else {
                 $parameters['code'] = -1;
             }
@@ -96,7 +114,7 @@ class indicadorController extends Controller
         }else{
             
             if ($this->getTexto('code')) {
-                $parameters[] = $this->getPostParam('codigo');
+                $parameters[] = $this->getPostParam('txtcode');
             } else {
                 $parameters[] = -1;
             }

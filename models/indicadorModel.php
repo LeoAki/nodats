@@ -10,6 +10,12 @@ class indicadorModel extends Model{
         parent::__construct();
     }
     
+    public function listbycode($idem) {
+        $lis= $this->_db->query('select codigo,idcomponente,nro_criterio,criterio,peso
+            from Indicador where codigo='.$idem);
+        return $lis->fetchall(PDO::FETCH_CLASS);
+    }
+    
     public function listbycomponent($idemcomponent) {
         $lis=  $this->_db->query('select codigo,idcomponente,nro_criterio,criterio,peso
             from Indicador where idcomponente='.$idemcomponent);

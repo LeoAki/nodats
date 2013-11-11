@@ -6,37 +6,42 @@
                 <h5><?= isset($this->titulo)?$this->titulo:''; ?></h5>
             </div>
             <div class="widget-content nopadding">
+
+<?php 
+foreach ($this->datosindicador as $dateind):
+
+endforeach; ?>
 <center>
     <form class="form-horizontal" method="post" action="<?= BASE_URL; ?>indicador/procedure" name="form" id="form" novalidate="novalidate">
 
 <div class="control-group" style="display: none;">
     <div class="controls">
-        <input type='text' id='txtcode' name='txtcode' value="">
+        <input type='text' id='txtcode' name='txtcode' value="<?=$dateind->codigo;?>">
     </div>
 </div>
     
 <div class="control-group" style="display: none;">
     <div class="controls">
-        <input type='text' id='txtcomponente' name='txtcomponente' value="<?=$this->componente;?>">
+        <input type='text' id='txtcomponente' name='txtcomponente' value="<?=$dateind->idcomponente;?>">
     </div>
 </div>
     
 <div class="control-group" style="display: none;">
     <div class="controls">
-        <input id="txtfiu" name="txtfiu" type="text" value="<?= $this->numero;?>"/>
+        <input id="txtfiu" name="txtfiu" type="text" value="<?=$dateind->nro_criterio;?>"/>
     </div>
 </div>
     
 <div class="control-group" style="display: none;">
     <div class="controls">
-        <input type='text' id='txtpeso' name='txtpeso' value="1"/>
+        <input type='text' id='txtpeso' name='txtpeso' value="<?=$dateind->peso;?>"/>
     </div>
 </div>
 
 <div class="control-group">
     <label class="control-label">CRITERIO:  </label>
     <div class="controls">
-        <input type='text' id='txtcriterio' name='txtcriterio' style='width: 95%'/>
+        <input type='text' id='txtcriterio' name='txtcriterio' style='width: 95%' value="<?=$dateind->criterio;?>"/>
     </div>
 </div>
 
