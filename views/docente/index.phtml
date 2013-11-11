@@ -1,0 +1,53 @@
+<div class="row-fluid">
+    <div class="span12">
+        <? if(isset($this->mensaje)): ?>
+        <div class="alert alert-<?= $this->mensaje['tipo']; ?>"><?= $this->mensaje['texto']; ?><a href="#" class="close" data-dismiss="alert">×</a></div>
+        <? endif; ?>
+        <div class="widget-box">
+            <div class="widget-title">
+                <span class="icon">
+                    <i class="icon-align-justify"></i>
+                </span>
+                <h5><?= isset($this->titulo)?$this->titulo:''; ?></h5>
+            </div>
+            <div class="widget-content nopadding">
+                <table class="table table-bordered table-striped data-table dataTable">
+                    <thead>
+                        <tr>
+                            <th>NOMBRES</th>
+                            <th>DNI</th>
+                            <th>TIPO</th>
+                            <th>CARGO</th>
+                            <th>DIRECCION</th>
+                            <th>FIJO/CEL</th>
+                            <th>EMAIL</th>
+                            <th>Ver registros</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- AQUI EL WHILE -->
+<?php foreach ($this->docente as $docente): ?>
+                        <tr>
+                            <td><?=$docente->paterno.' '.$docente->materno.', '.$docente->nombres;?></td>
+                            <td><?=$docente->dni;?></td>
+                            <td><?=$docente->tipo;?></td>
+                            <td><?=$docente->cargo;?></td>
+                            <td><?=$docente->direccion;?></td>
+                            <td><?=$docente->telefono.'/ '.$docente->celular;?></td>
+                            <td><a href='mailto:<?=$docente->email;?>'><?=$docente->email;?></a></td>
+                            <td><a href='<?= BASE_URL ?>docente/#'>Ver registros</a></td>
+                        </tr>
+<?php endforeach;?>
+                    </tbody>
+                </table>
+
+
+                <div class="pagination">
+                    <ul>
+                        <!-- AQUI EL CODIGO DE PAGINACION-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

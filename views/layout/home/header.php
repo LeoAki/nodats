@@ -63,7 +63,7 @@
 						<li><a href="<?= BASE_URL; ?>componente/index">Consutar</a></li>						
 					</ul>
 				</li>                                
-				<li><a href="interface.php"><i class="icon icon-pencil"></i> <span>Docentes</span></a></li>
+				<li><a href="<?= BASE_URL; ?>docente"><i class="icon icon-user"></i> <span>Docentes</span></a></li>
 				<li class="submenu"> 
 					<a href="#"><i class="icon icon-file"></i> <span>Consolidados</span> <span class="label">4</span></a>
 					<ul>
