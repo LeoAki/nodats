@@ -106,7 +106,7 @@ class indicadorController extends Controller
     public function getParameters($keys = true) {
         $parameters = array();
         if($keys){
-           if ($this->getTexto('code')) {
+           if ($this->getTexto('txtcode')) {
                 $parameters['code'] = $this->getPostParam('txtcode');
             } else {
                 $parameters['code'] = -1;
