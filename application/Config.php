@@ -7,15 +7,15 @@
  */
  
 
-define('BASE_URL', 'http://192.168.0.118/nodats/');
+define('BASE_URL', 'http://localhost/nodats/');
 define('DEFAULT_CONTROLLER', 'auth');
 define('DEFAULT_LAYOUT', 'default');
  
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
-define('DB_PASS', 'soporte');
-define('DB_NAME', 'LNCCNOTAS1');
+define('DB_PASS', '');
+define('DB_NAME', 'lnccnotas1');
 define('LIMIT_REGXPAG',5);
 define('LIMIT_PAGEVIEW',10);
 define('DB_ENGINE','mysql');
