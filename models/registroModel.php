@@ -14,7 +14,7 @@ class registroModel extends Model{
         $list= $this->_db->query('
             select codigo, grado, nombreseccion, nomnivel, paterno, materno, nombres, dni,CODEASINA,asinatura,I,II,II,IV
             from describeregistro');
-        return $list->fetchall();
+        return $list->fetchall(PDO::FETCH_CLASS);
     }
     
     public function activar_registro($codigo,$bimestre,$status) {
