@@ -12,8 +12,15 @@ class registroModel extends Model{
     
     public function listviewreg() {
         $list= $this->_db->query('
-            select codigo, grado, nombreseccion, nomnivel, paterno, materno, nombres, dni,CODEASINA,asinatura,I,II,II,IV
+            select codigo, grado, nombreseccion, nomnivel, paterno, materno, nombres, dni,CODEASINA,asinatura,I,II,II,IV,iddocente
             from describeregistro');
+        return $list->fetchall(PDO::FETCH_CLASS);
+    }
+
+    public function listviewregbydocent($iddocente) {
+        $list= $this->_db->query('
+            select codigo, grado, nombreseccion, nomnivel, paterno, materno, nombres, dni,CODEASINA,asinatura,I,II,III,IV,iddocente
+            from describeregistro where iddocente='.$iddocente);
         return $list->fetchall(PDO::FETCH_CLASS);
     }
     

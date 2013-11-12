@@ -1,3 +1,9 @@
+    <h1><?= isset($this->titulo)?$this->titulo:''; ?></h1>
+    <div class="btn-group">
+            <a class="btn btn-large tip-bottom" title="Agregar docente"><i class="icon-user"></i></a>
+    </div>
+</div>
+
 <div class="row-fluid">
     <div class="span12">
         <? if(isset($this->mensaje)): ?>
@@ -11,42 +17,36 @@
                 <h5><?= isset($this->titulo)?$this->titulo:''; ?></h5>
             </div>
             <div class="widget-content nopadding">
-                <table class="table table-bordered table-striped data-table dataTable">
+                <table class="table table-hover table-bordered table-striped data-table dataTable">
                     <thead>
                         <tr>
                             <th>NOMBRES</th>
                             <th>DNI</th>
                             <th>TIPO</th>
-                            <th>CARGO</th>
-                            <th>DIRECCION</th>
-                            <th>FIJO/CEL</th>
-                            <th>EMAIL</th>
-                            <th>Ver registros</th>
+                            <th>DATOS PERSONALES</th>
+                            <th>Observar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- AQUI EL WHILE -->
-<?php foreach ($this->docente as $docente): ?>
+                    <?php foreach ($this->docente as $docente): ?>
+                    <?php
+                    $url= BASE_URL.'registro/buscar/'.$docente->codigo;
+                    $value='registros';
+                    if($docente->direccion==null) $docente->direccion='No brindo esta info';
+                    if($docente->telefono==null) $docente->telefono='?';
+                    if($docente->celular==null) $docente->celular='?';
+                    if($docente->tipo==="AUXILIAR") {$value='aulas'; $url= BASE_URL.'docente/##';}
+                    ?>
                         <tr>
                             <td><?=$docente->paterno.' '.$docente->materno.', '.$docente->nombres;?></td>
                             <td><?=$docente->dni;?></td>
                             <td><?=$docente->tipo;?></td>
-                            <td><?=$docente->cargo;?></td>
-                            <td><?=$docente->direccion;?></td>
-                            <td><?=$docente->telefono.'/ '.$docente->celular;?></td>
-                            <td><a href='mailto:<?=$docente->email;?>'><?=$docente->email;?></a></td>
-                            <td><a href='<?= BASE_URL ?>docente/#'>Ver registros</a></td>
+                            <td><b>Telf:</b><?=$docente->telefono.'/ '.$docente->celular;?> , <b>MAIL: </b><a href='mailto:<?=$docente->email;?>'><?=$docente->email;?></a><br><b>Dir: </b><?=$docente->direccion;?>,</td>
+                            <td><a href=<?=$url?>><i><?=$value?></i></a></td>
                         </tr>
-<?php endforeach;?>
+                    <?php endforeach;?>
                     </tbody>
                 </table>
-
-
-                <div class="pagination">
-                    <ul>
-                        <!-- AQUI EL CODIGO DE PAGINACION-->
-                    </ul>
-                </div>
             </div>
         </div>
     </div>

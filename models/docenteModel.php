@@ -26,7 +26,9 @@ class docenteModel extends Model{
                                 from Docente d
                                 inner join TipoProfe tp on d.tipoprofe=tp.codigo
                                 inner join personal_detallado pd on d.dni=pd.dni
-                                inner join Persona per on d.codigopersona=per.codigo');
+                                inner join Persona per on d.codigopersona=per.codigo
+                                where tp.tipo not like (\'%SUB%\')
+                                ');
         return $list->fetchall(PDO::FETCH_CLASS);
     }
 }
