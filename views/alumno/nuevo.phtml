@@ -12,7 +12,62 @@
                     <div class="control-group">
                         <label class="control-label">Nombre del Curso</label>
                         <div class="controls">
-                            <input type="text" name="curso" id="curso">
+                        <select name="nivel" id="id_nivel">
+                        <option value=""> SELECCIONE </option>
+                        <?php foreach ($this->niveles as $nivel): ?>
+                        <option value="<?php echo $nivel->nivel; ?>"> <?php echo $nivel->nomnivel; ?> </option>                        
+                        <?php endforeach; ?>
+                        </select>
+                        <select name="grado" id="id_grado">
+                        <option value=""> SELECCIONE </option>
+                        <?php foreach ($this->grados as $grado): ?>
+                        <option value="<?php echo $grado->codigo; ?>"> <?php echo $grado->grado; ?> </option>                        
+                        <?php endforeach; ?>
+                        </select>
+                        <select name="cod_seccion">
+                        </select>
+                        <!-- 
+                            	cod_seccion=acod_seccion,
+	paterno=apaterno,
+	materno=amaterno,
+	nombres=anombres,
+	nacionalidad=anacionalidad,
+	sexo=asexo,
+	dni=adni,
+	fechainscripcion=afechainscripcion,
+	matriculante=amatriculante,
+	fechanacimiento=afechanacimiento,
+	departamento_nac=adepartamento_nac,
+	provincia_nac=provincia_nac,
+	distrito_nac=adistrito_nac,
+	localidad_nac=alocalidad_nac,
+	tipodeparto=atipodeparto,
+	descripcion_parto=adescripcion_parto,
+	departamento=adepartamento,
+	provincia=aprovincia,
+	distrito=adistrito,
+	domicilio=adomicilio,
+	ano_residencia=aano_residencia,
+	celular=acelular,
+	fijo=afijo,
+	rpm=arpm,
+	rpc=arpc,
+	email=aemail,
+	religion=areligion,
+	alergicomedicamento1=aalergicomedicamento1,
+	alergicomedicamento2=aalergicomedicamento2,
+	alergicomedicamento3=aalergicomedicamento3,
+	alergicomedicamento4=aalergicomedicamento4,
+	alergia_polvo_acaro=aalergia_polvo_acaro,
+	alergia_humedad_hongos=aalergia_humedad_hongos,
+	tipo_sangre=atipo_sangre,
+	becado=abecado,
+	tipo_beca=atipo_beca,
+	resolucion_beca=aresolucion_beca,
+	cant_hermanos=acant_hermanos,
+	lugar_hermanos=alugar_hermanos,
+	colegioprocedente=acolegioprocedente
+	where codigo=acodigo; -->
                         </div>
                     </div>
                     <div class="form-actions">

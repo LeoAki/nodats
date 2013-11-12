@@ -29,6 +29,18 @@
         return $list->fetchall();
     }
     
+ 	public function listsectionByNivelGrado($level, $grado) {
+        #INICIAL 1::inicial
+        #PRIMARIA 2::primaria
+        #SECUNDARIA 3::secundaria
+        $list = $this->_db->query('
+                select codigo, nombreseccion
+                from Seccion where cod_nivel = :nivel and cod_grado= :grado');
+        $list->bindParam(':nivel', $nivel);
+        $list->bindParam(':grado', $grado);
+        return $list->fetchall(PDO::FETCH_CLASS);
+    }
+    
     public function Grabar($param) {
         $this->_db->prepare('')->execute('');
         return $this->_db->errno;

@@ -13,12 +13,12 @@ class nivelModel extends Model{
     
     public function listarniveles() {
         $niveles= $this->_db->query('select * from Nivel;');
-        return $niveles->fetchall();
+        return $niveles->fetchall(PDO::FETCH_CLASS);
     }
     
     public function listargrados(){
         $grados=  $this->_db->query('select * from Grado;');
-        return $grados->fetchall;
+        return $grados->fetchall(PDO::FETCH_CLASS);
     }
 }
 

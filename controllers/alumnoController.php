@@ -18,8 +18,11 @@ class alumnoController extends Controller
     }
     
     public function nuevo() {
+    	$nivel = $this->loadModel('nivel');
         $this->_view->titulo = 'Registro de Alumnos';
         $this->_view->setJS(array('nuevo'));
+        $this->_view->niveles = $nivel->listarniveles();
+        $this->_view->grados = $nivel->listargrados();
         $this->setMensaje(array(
             'tipo' => 'success',
             'texto' => 'Registro Grabado con exito'
@@ -32,7 +35,7 @@ class alumnoController extends Controller
     }
     
     public function editar($codigo=null){
-        $this->_view->titulo = 'EdiciÃ³n de Alumnos';
+        $this->_view->titulo = 'Edición de Alumnos';
         $this->_view->setJS(array('editar'));
         $this->setMensaje(array(
             'tipo' => 'success',

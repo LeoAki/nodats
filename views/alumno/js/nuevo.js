@@ -28,3 +28,18 @@ $(document).ready(function(){
 		}
 	});
 });
+
+function loadSecciones(){
+	var nivel = $('#id_nivel').val(),
+	grado = $('#id_grado').val();
+	var options = {
+		url: 'nivel/seccionesAjax/',
+		data: {
+			nivel: nivel,
+			grado: grado
+		}
+	}
+	var request = $.GET(options);
+	request.done = function
+	
+}
