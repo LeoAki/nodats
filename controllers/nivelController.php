@@ -14,8 +14,9 @@ class nivelController extends Controller
     	$grado = $_GET['grado'];
     	$model = $this->loadModel('seccion');
     	$secciones = $model->listsectionByNivelGrado($nivel, $grado);
-    	header('content-type', 'application/json');
-    	json_encode($secciones);
+        //print_r($secciones);exit;
+    	header('Content-type: text/json');
+    	echo json_encode($secciones);
     }
 }
 

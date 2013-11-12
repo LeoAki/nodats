@@ -10,24 +10,26 @@
             <div class="widget-content nopadding">
                 <form class="form-horizontal" method="post" action="<?= BASE_URL; ?>alumno/grabar" name="form" id="form" novalidate="novalidate">
                     <div class="control-group">
-                        <label class="control-label">Nombre del Curso</label>
+                        <label class="control-label">Sección</label>
                         <div class="controls">
                         <select name="nivel" id="id_nivel">
-                        <option value=""> SELECCIONE </option>
+                        <option value=""> ---NIVEL--- </option>
                         <?php foreach ($this->niveles as $nivel): ?>
                         <option value="<?php echo $nivel->nivel; ?>"> <?php echo $nivel->nomnivel; ?> </option>                        
                         <?php endforeach; ?>
                         </select>
                         <select name="grado" id="id_grado">
-                        <option value=""> SELECCIONE </option>
+                        <option value=""> ---GRADO--- </option>
                         <?php foreach ($this->grados as $grado): ?>
                         <option value="<?php echo $grado->codigo; ?>"> <?php echo $grado->grado; ?> </option>                        
                         <?php endforeach; ?>
                         </select>
-                        <select name="cod_seccion">
-                        </select>
-                        <!-- 
-                            	cod_seccion=acod_seccion,
+                        <select name="cod_seccion" id="id_cod_seccion">
+                            <option value=""> ---SECCION--- </option>
+                        </select>                        
+                        </div>
+                    </div>
+                    <!-- 
 	paterno=apaterno,
 	materno=amaterno,
 	nombres=anombres,
@@ -68,8 +70,6 @@
 	lugar_hermanos=alugar_hermanos,
 	colegioprocedente=acolegioprocedente
 	where codigo=acodigo; -->
-                        </div>
-                    </div>
                     <div class="form-actions">
                         <input type="submit" value="Grabar" class="btn btn-primary">
                     </div>
