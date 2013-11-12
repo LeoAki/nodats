@@ -1,41 +1,40 @@
+    <h1><?= isset($this->titulo)?$this->titulo:''; ?></h1>
+    <div class="btn-group">
+            <a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-file"></i></a>
+            <a class="btn btn-large tip-bottom" title="Manage Users"><i class="icon-user"></i></a>
+            <a class="btn btn-large tip-bottom" title="Manage Comments"><i class="icon-comment"></i><span class="label label-important">25</span></a>
+    </div>
+</div>
+
 <div class="row-fluid">
     <div class="span12">
-        <div class="widget-box">
+        <center><div class="widget-box"  style="width: 65%;">
             <div class="widget-title">
                 <span class="icon">
                     <i class="icon-align-justify"></i>
                 </span>
                 <h5><?= isset($this->titulo)?$this->titulo:''; ?></h5>
             </div>
-            <div class="widget-content nopadding">
 
-<table class="table table-hover">
-    <thead>
-        <tr><th>GRADO</th><th>VER</th></tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><center>1° GRADO</center></td><td><a href="<?= BASE_URL; ?>indicador/sinaturas/primaria/1"><strong>VER &Aacute;REAS</strong></a></td>
-        </tr>
-        <tr>
-            <td><center>2° GRADO</center></td><td><a href="<?= BASE_URL; ?>indicador/sinaturas/primaria/2"><strong>VER &Aacute;REAS</strong></a></td>
-        </tr>
-        <tr>
-            <td><center>3° GRADO</center></td><td><a href="<?= BASE_URL; ?>indicador/sinaturas/primaria/3"><strong>VER &Aacute;REAS</strong></a></td>
-        </tr>
-        <tr>
-            <td><center>4° GRADO</center></td><td><a href="<?= BASE_URL; ?>indicador/sinaturas/primaria/4"><strong>VER &Aacute;REAS</strong></a></td>
-        </tr>
-        <tr>
-            <td><center>5° GRADO</center></td><td><a href="<?= BASE_URL; ?>indicador/sinaturas/primaria/5"><strong>VER &Aacute;REAS</strong></a></td>
-        </tr>
-        <tr>
-            <td><center>6° GRADO</center></td><td><a href="<?= BASE_URL; ?>indicador/sinaturas/primaria/6"><strong>VER &Aacute;REAS</strong></a></td>
-        </tr>
-    </tbody>
-</table>
-
+    <div class="widget-content nopadding">
+        <table class="table table-bordered table-striped">
+        <thead><tr><th>GRADO</th><th>VER</th></tr></thead>
+        <tbody>
+            <tr><td><center>1° GRADO</center></td><td><a href="<?= BASE_URL; ?>indicador/sinaturas/primaria/1"><strong>VER &Aacute;REAS</strong></a></td>
+            </tr>
+            <tr><td><center>2° GRADO</center></td><td><a href="<?= BASE_URL; ?>indicador/sinaturas/primaria/2"><strong>VER &Aacute;REAS</strong></a></td>
+            </tr>
+            <tr><td><center>3° GRADO</center></td><td><a href="<?= BASE_URL; ?>indicador/sinaturas/primaria/3"><strong>VER &Aacute;REAS</strong></a></td>
+            </tr>
+            <tr><td><center>4° GRADO</center></td><td><a href="<?= BASE_URL; ?>indicador/sinaturas/primaria/4"><strong>VER &Aacute;REAS</strong></a></td>
+            </tr>
+            <tr><td><center>5° GRADO</center></td><td><a href="<?= BASE_URL; ?>indicador/sinaturas/primaria/5"><strong>VER &Aacute;REAS</strong></a></td>
+            </tr>
+            <tr><td><center>6° GRADO</center></td><td><a href="<?= BASE_URL; ?>indicador/sinaturas/primaria/6"><strong>VER &Aacute;REAS</strong></a></td>
+            </tr>
+        </tbody>
+        </table>
             </div>
-        </div>
+            </div></center>
     </div>
 </div>
