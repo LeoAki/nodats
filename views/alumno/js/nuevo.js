@@ -42,13 +42,13 @@ function loadSecciones() {
         },
         async: true,
         ajaxSend: function(data, textStatus, jqXHR) {
-            $('#id_cod_seccion').html('Cargando...');
+            $('#id_acod_seccion').html('Cargando...');
         }
     };
     var posting = $.ajax(options);
 
     posting.done(function(data, textStatus, jqXHR) {
-        var combo = $('#id_cod_seccion'),
+        var combo = $('#id_acod_seccion'),
         opt=null;
         combo.empty();
         $.each(data, function(k, v) {
@@ -57,7 +57,7 @@ function loadSecciones() {
         });
     })
             .fail(function(data, textStatus, jqXHR) {
-        $('#id_cod_seccion').empty();
+        $('#id_acod_seccion').empty();
     });
 }
 
