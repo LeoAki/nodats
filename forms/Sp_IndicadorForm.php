@@ -4,27 +4,27 @@ class Sp_IndicadorForm extends Form {
 
     public function buildFields(){
         $this->fields = array(
-            array(
+            'acodigo' => array(
                 'label' => 'acodigo', 'nombre' => 'acodigo',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'aidcomponente' => array(
                 'label' => 'aidcomponente', 'nombre' => 'aidcomponente',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'anro_criterio' => array(
                 'label' => 'anro_criterio', 'nombre' => 'anro_criterio',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'acriterio' => array(
                 'label' => 'acriterio', 'nombre' => 'acriterio',
                 'tipo' => 'varchar', 'tamano' => 257,
                 'atributos' => ''
             ),
-            array(
+            'apeso' => array(
                 'label' => 'apeso', 'nombre' => 'apeso',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''

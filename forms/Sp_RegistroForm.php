@@ -4,42 +4,42 @@ class Sp_RegistroForm extends Form {
 
     public function buildFields(){
         $this->fields = array(
-            array(
+            'acodigo' => array(
                 'label' => 'acodigo', 'nombre' => 'acodigo',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'acodigoseccion' => array(
                 'label' => 'acodigoseccion', 'nombre' => 'acodigoseccion',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'acodigodocente' => array(
                 'label' => 'acodigodocente', 'nombre' => 'acodigodocente',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'acodigoasinatura' => array(
                 'label' => 'acodigoasinatura', 'nombre' => 'acodigoasinatura',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'auno' => array(
                 'label' => 'auno', 'nombre' => 'auno',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'ados' => array(
                 'label' => 'ados', 'nombre' => 'ados',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'atres' => array(
                 'label' => 'atres', 'nombre' => 'atres',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'acuatro' => array(
                 'label' => 'acuatro', 'nombre' => 'acuatro',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''

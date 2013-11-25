@@ -90,20 +90,23 @@ abstract class Form {
         }
     }
 
-    public function getFieldValues() {
+    public function getFieldValues($prefix = '') {
         $values = array();
         foreach ($this->fields as $field) {
-            $values[$field['nombre']] = $field['valor'];
+            $name = $prefix . $field['nombre'];
+            $values[$name] = $field['valor'];
         }
         return $values;
     }
     
-    public function setFieldValues($values){
-        foreach ($this->fields as &$field) {
-            $field['valor'] = $values[$field['nombre']];
+    public function setFieldValues($values, $prefix='a'){
+        foreach ($this->fields as $key => $field) {
+            $name = substr($key, strpos($prefix, $key)+1);            
+            $this->fields[$key]['valor'] = array_key_exists($name, $values)
+                    ?$values[$name]:'';
         }
     }
-
+    
     protected function getPostParam($clave) {
         $value = filter_input(INPUT_POST, $clave, FILTER_SANITIZE_SPECIAL_CHARS);
         return $value;

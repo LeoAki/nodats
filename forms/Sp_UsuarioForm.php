@@ -4,47 +4,47 @@ class Sp_UsuarioForm extends Form {
 
     public function buildFields(){
         $this->fields = array(
-            array(
+            'acodigo' => array(
                 'label' => 'acodigo', 'nombre' => 'acodigo',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'ausuario' => array(
                 'label' => 'ausuario', 'nombre' => 'ausuario',
                 'tipo' => 'varchar', 'tamano' => 15,
                 'atributos' => ''
             ),
-            array(
+            'acontrasena' => array(
                 'label' => 'acontrasena', 'nombre' => 'acontrasena',
                 'tipo' => 'varchar', 'tamano' => 32,
                 'atributos' => ''
             ),
-            array(
+            'aidperfil' => array(
                 'label' => 'aidperfil', 'nombre' => 'aidperfil',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'aestado' => array(
                 'label' => 'aestado', 'nombre' => 'aestado',
                 'tipo' => 'varchar', 'tamano' => 100,
                 'atributos' => ''
             ),
-            array(
+            'aidpersona' => array(
                 'label' => 'aidpersona', 'nombre' => 'aidpersona',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'anivel' => array(
                 'label' => 'anivel', 'nombre' => 'anivel',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'ainscripcion' => array(
                 'label' => 'ainscripcion', 'nombre' => 'ainscripcion',
                 'tipo' => 'date', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'aultimasesion' => array(
                 'label' => 'aultimasesion', 'nombre' => 'aultimasesion',
                 'tipo' => 'datetime', 'tamano' => 10,
                 'atributos' => ''

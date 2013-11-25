@@ -9,10 +9,59 @@
             </div>
             <div class="widget-content nopadding">
                 <form class="form-horizontal" method="post" action="<?= BASE_URL; ?>alumno/grabar" name="form" id="form" novalidate="novalidate">
-                    <div class="control-group">
-                        <label class="control-label">Nombre del Curso</label>
-                        <div class="controls">
-                            <input type="text" name="curso" id="curso">
+                    
+                    <div class="row-fluid">
+                        <div class="span2">
+                        <?php echo $this->form->acodigo; ?>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span2">
+                        <?php echo $this->form->acod_seccion; ?>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span3">
+                        <?php echo $this->form->apaterno; ?>
+                        </div>
+                        <div class="span3">
+                        <?php echo $this->form->amaterno; ?>
+                        </div>
+                        <div class="span3">
+                        <?php echo $this->form->anombres; ?>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span3">
+                        <?php echo $this->form->anacionalidad; ?>
+                        </div>
+                        <div class="span3">
+                        <?php echo $this->form->asexo; ?>
+                        </div>
+                        <div class="span3">
+                        <?php echo $this->form->adni; ?>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span3">
+                        <?php echo $this->form->afechainscripcion; ?>
+                        </div>
+                        <div class="span3">
+                        <?php echo $this->form->amatriculante; ?>
+                        </div>
+                        <div class="span3">
+                        <?php echo $this->form->afechanacimiento; ?>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span3">
+                        <?php echo $this->form->adepartamento_nac; ?>
+                        </div>
+                        <div class="span3">
+                        <?php echo $this->form->aprovincia_nac; ?>
+                        </div>
+                        <div class="span3">
+                        <?php echo $this->form->adistrito_nac; ?>
                         </div>
                     </div>
                     <div class="form-actions">
@@ -22,3 +71,4 @@
             </div>
         </div>			
     </div>
+</div>

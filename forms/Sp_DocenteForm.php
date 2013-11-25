@@ -4,37 +4,37 @@ class Sp_DocenteForm extends Form {
 
     public function buildFields(){
         $this->fields = array(
-            array(
+            'acodigo' => array(
                 'label' => 'acodigo', 'nombre' => 'acodigo',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'apaterno' => array(
                 'label' => 'apaterno', 'nombre' => 'apaterno',
                 'tipo' => 'varchar', 'tamano' => 32,
                 'atributos' => ''
             ),
-            array(
+            'amaterno' => array(
                 'label' => 'amaterno', 'nombre' => 'amaterno',
                 'tipo' => 'varchar', 'tamano' => 32,
                 'atributos' => ''
             ),
-            array(
+            'anombres' => array(
                 'label' => 'anombres', 'nombre' => 'anombres',
                 'tipo' => 'varchar', 'tamano' => 150,
                 'atributos' => ''
             ),
-            array(
+            'adni' => array(
                 'label' => 'adni', 'nombre' => 'adni',
                 'tipo' => 'char', 'tamano' => 8,
                 'atributos' => ''
             ),
-            array(
+            'acodigopersona' => array(
                 'label' => 'acodigopersona', 'nombre' => 'acodigopersona',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'atipoprofe' => array(
                 'label' => 'atipoprofe', 'nombre' => 'atipoprofe',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''

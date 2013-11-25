@@ -45,7 +45,12 @@ class alumnoController extends Controller {
     }
 
     public function editar($codigo = null) {
-        $this->_view->titulo = 'Edici�n de Alumnos';
+        $this->_view->titulo = 'Edicion de Alumnos';
+        $model = $this->loadModel('alumno');
+        $form = $this->_view->getForm('Sp_alumno');
+        $obj = $model->findByCodigo($codigo);
+        $form->setFieldValues($obj);
+        $this->_view->form=$form;
         $this->_view->setJS(array('editar'));
         $this->setMensaje(array(
             'tipo' => 'success',

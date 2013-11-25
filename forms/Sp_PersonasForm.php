@@ -4,37 +4,37 @@ class Sp_PersonasForm extends Form {
 
     public function buildFields(){
         $this->fields = array(
-            array(
+            'acodigo' => array(
                 'label' => 'acodigo', 'nombre' => 'acodigo',
                 'tipo' => 'int', 'tamano' => 10,
                 'atributos' => ''
             ),
-            array(
+            'apaterno' => array(
                 'label' => 'apaterno', 'nombre' => 'apaterno',
                 'tipo' => 'varchar', 'tamano' => 50,
                 'atributos' => ''
             ),
-            array(
+            'amaterno' => array(
                 'label' => 'amaterno', 'nombre' => 'amaterno',
                 'tipo' => 'varchar', 'tamano' => 50,
                 'atributos' => ''
             ),
-            array(
+            'anombres' => array(
                 'label' => 'anombres', 'nombre' => 'anombres',
                 'tipo' => 'varchar', 'tamano' => 100,
                 'atributos' => ''
             ),
-            array(
+            'adni' => array(
                 'label' => 'adni', 'nombre' => 'adni',
                 'tipo' => 'char', 'tamano' => 8,
                 'atributos' => ''
             ),
-            array(
+            'asexo' => array(
                 'label' => 'asexo', 'nombre' => 'asexo',
                 'tipo' => 'char', 'tamano' => 1,
                 'atributos' => ''
             ),
-            array(
+            'aemail' => array(
                 'label' => 'aemail', 'nombre' => 'aemail',
                 'tipo' => 'varchar', 'tamano' => 100,
                 'atributos' => ''

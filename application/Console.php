@@ -27,6 +27,12 @@ WHERE SPECIFIC_NAME = :sp AND
 SPECIFIC_SCHEMA = :db
 ORDER BY ORDINAL_POSITION;
 ";
+//        $sql_param = "SELECT COLUMN_NAME as PARAMETER_NAME, DATA_TYPE, 
+//            CHARACTER_MAXIMUM_LENGTH, NUMERIC_PRECISION
+//FROM information_schema.COLUMNS 
+//WHERE TABLE_NAME = :sp AND 
+//TABLE_SCHEMA = :db
+//ORDER BY ORDINAL_POSITION;";
         $class = '<?php
 
 class %sForm extends Form {
@@ -38,11 +44,13 @@ class %sForm extends Form {
     }
 }';
         $st = $db->query('select name from mysql.proc');
+//        $st = $db->query("SELECT TABLE_NAME as name FROM information_schema.TABLES
+//WHERE TABLE_SCHEMA='".DB_NAME."' AND TABLE_TYPE='BASE TABLE' ;");
         $st->execute();
         $procedures = $st->fetchAll();
         $stf = $db->prepare($sql_param);
         $field = "
-            array(
+            '%s' => array(
                 'label' => '%s', 'nombre' => '%s',
                 'tipo' => '%s', 'tamano' => %s,
                 'atributos' => '%s'
@@ -54,6 +62,7 @@ class %sForm extends Form {
             $fields = array();
             foreach ($parameters as $parameter) {
                 $fields[] = sprintf($field, $parameter['PARAMETER_NAME'],
+                        $parameter['PARAMETER_NAME'],
                         $parameter['PARAMETER_NAME'],
                         $parameter['DATA_TYPE'], in_array($parameter['DATA_TYPE'], array(
                         'int', 'number', 'float', 'double', 'bigint', 'decimal'

@@ -52,12 +52,17 @@ class alumnoModel extends Model{
 :acant_hermanos,
 :alugar_hermanos,
 :acolegioprocedente)");
-//        print $stmt->errorCode();
+//        print_r( $stmt->errorCode());
 //        print_r( $stmt->errorInfo());
 //        exit;
         if(!$stmt) return false;
         return $stmt->execute($datos);
     }    
+    
+    public function findByCodigo($codigo){
+        $lis=  $this->_db->query('select * from alumno where codigo='.$codigo);
+        return $lis->fetch(PDO::FETCH_ASSOC);
+    }
     
 }
 
