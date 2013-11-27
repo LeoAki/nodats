@@ -1,0 +1,41 @@
+<div style="padding-top: 15px;"><center><h5>REGISTRO DE NOTAS DEL I BIMESTRE-2013</h5></center></div>
+</div>
+<?
+foreach ($this->NameResponsable as $docentetutor):
+$responsable=$docentetutor->codigodocente;
+endforeach;
+$datosprofe = $this->modelregistroal->docentevalor($responsable);
+foreach ($datosprofe as $datoprofe):
+echo "Profesor:[".$datoprofe->paterno." ".$datoprofe->materno." ,".$datoprofe->nombres."]";
+endforeach;
+?>
+<div class="row-fluid">
+    <div class="span12">
+        <? if(isset($this->mensaje)): ?>
+        <div class="alert alert-<?= $this->mensaje['tipo']; ?>"><?= $this->mensaje['texto']; ?><a href="#" class="close" data-dismiss="alert">×</a></div>
+        <? endif; ?>
+        <div class="widget-box"  style="padding:5px;">
+            <div class="widget-title">
+                <span class="icon">
+                    <i class="icon-align-justify"></i>
+                </span>
+                <h5><?= isset($this->titulo)?$this->titulo:''; ?></h5>
+            </div>
+            <div class="widget-content nopadding">
+<table class="table table-hover table-bordered table-striped data-table dataTable">
+    <thead>
+        <tr>
+            <th>CODIGO</th>
+            <th>SECCION</th>
+            <th>ASIGNATURA</th>
+            <th>I</th><th>II</th><th>III</th><th>IV</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+            </div>
+        </div>
+    </div>
+</div>

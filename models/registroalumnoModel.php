@@ -628,7 +628,7 @@ class registroalumnoModel extends Model {
              WHERE ase.idseccion =\''.$seccion.'\'
              order by ase.nroorden
             ');
-        return $list->fetchall();
+        return $list->fetchall(PDO::FETCH_CLASS);
     }
 
     public function Grabar1() {
@@ -726,25 +726,36 @@ class registroalumnoModel extends Model {
     public function ListarNotasRegistro1($alre) {
         $alre = (int) $alre;
         $list= $this->_db->query('SELECT * FROM 1Alumno_Registro where idalumnoregistro=\''.$alre.'\';');
-        return $list->fetchall();
+        return $list->fetchall(PDO::FETCH_CLASS);
     }
 
     public function ListarNotasRegistro2($alre) {
         $alre = (int) $alre;
         $list= $this->_db->query('SELECT * FROM 2Alumno_Registro where idalumnoregistro=\''.$alre.'\';');
-        return $list->fetchall();
+        return $list->fetchall(PDO::FETCH_CLASS);
     }
 
     public function ListarNotasRegistro3($alre) {
         $alre = (int) $alre;
         $list= $this->_db->query('SELECT * FROM 3Alumno_Registro where idalumnoregistro=\''.$alre.'\';');
-        return $list->fetchall();
+        return $list->fetchall(PDO::FETCH_CLASS);
     }
 
     public function ListarNotasRegistro4($alre) {
         $alre = (int) $alre;
         $list= $this->_db->query('SELECT * FROM 4Alumno_Registro where idalumnoregistro=\''.$alre.'\';');
-        return $list->fetchall();
+        return $list->fetchall(PDO::FETCH_CLASS);
+    }
+
+    public function Nom_res_registr($registro) {
+        echo 'Select codigodocente from Registro where codigo='.$registro.';';
+        $docente= $this->_db->query('Select codigodocente from Registro where codigo='.$registro.';');
+        return $docente->fetchall(PDO::FETCH_CLASS);
+    }
+
+    public function docentevalor($codigo){
+       $docente1= $this->_db->query('Select paterno,materno,nombres from Docente where codigo='.$codigo);
+       return $docente1->fetchall(PDO::FETCH_CLASS);
     }
 
 }

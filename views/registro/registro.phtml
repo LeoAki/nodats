@@ -9,7 +9,7 @@
         <? if(isset($this->mensaje)): ?>
         <div class="alert alert-<?= $this->mensaje['tipo']; ?>"><?= $this->mensaje['texto']; ?><a href="#" class="close" data-dismiss="alert">×</a></div>
         <? endif; ?>
-        <div class="widget-box">
+        <div class="widget-box"  style="padding:5px;">
             <div class="widget-title">
                 <span class="icon">
                     <i class="icon-align-justify"></i>
@@ -17,29 +17,58 @@
                 <h5><?= isset($this->titulo)?$this->titulo:''; ?></h5>
             </div>
             <div class="widget-content nopadding">
-                <table class="table table-hover table-bordered table-striped data-table dataTable">
-                    <thead>
-                        <tr>
-                            <th>CODIGO</th>
-                            <th>SECCION</th>
-                            <th>ASIGNATURA</th>
-                            <th>I</th><th>II</th><th>III</th><th>IV</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach ($this->busregbydoc as $registrodocente): ?>
-                        <tr>
-                            <td><?=$registrodocente->codigo;?></td>
-                            <td><?='<b>'.$registrodocente->grado.''.$registrodocente->nombreseccion.'</b> DE '.$registrodocente->nomnivel;?></td>
-                            <td><?=$registrodocente->asinatura;?></td>
-                            <td><?=$registrodocente->I;?></td>
-                            <td><?=$registrodocente->II;?></td>
-                            <td><?=$registrodocente->III;?></td>
-                            <td><?=$registrodocente->IV;?></td>
-                        </tr>
-                    <?php endforeach;?>
-                    </tbody>
-                </table>
+<table class="table table-hover table-bordered table-striped data-table dataTable">
+    <thead>
+        <tr>
+            <th>CODIGO</th>
+            <th>SECCION</th>
+            <th>ASIGNATURA</th>
+            <th>I</th><th>II</th><th>III</th><th>IV</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->busregbydoc as $registrodocente): ?>
+        <?switch ($registrodocente->I):
+           case 'INACTIVO':$message='<span class="badge badge-info">Inactivo</span>';break;
+           case 'EN PROCESO':$message='<span class="badge badge-important">En proceso</span>';break;
+           default:$message='<span class="badge badge-warning">'.$registrodocente->I.'</span>';break;
+        endswitch;
+        switch ($registrodocente->II):
+           case 'INACTIVO':$message2='<span class="badge badge-info">Inactivo</span>';break;
+           case 'EN PROCESO':$message2='<span class="badge badge-important">En proceso</span>';break;
+           default:$message2='<span class="badge badge-warning">'.$registrodocente->II.'</span>';break;
+        endswitch;
+        switch ($registrodocente->III):
+           case 'INACTIVO':$message3='<span class="badge badge-info">Inactivo</span>';break;
+           case 'EN PROCESO':$message3='<span class="badge badge-important">En proceso</span>';break;
+           default:$message3='<span class="badge badge-warning">'.$registrodocente->III.'</span>';break;
+        endswitch;
+        switch ($registrodocente->IV):
+           case 'INACTIVO':$message4='<span class="badge badge-info">Inactivo</span>';break;
+           case 'EN PROCESO':$message4='<span class="badge badge-important">En proceso</span>';break;
+           default:$message4='<span class="badge badge-warning">'.$registrodocente->IV.'</span>';break;
+        endswitch;
+        ?>
+        <tr>
+            <td><?=$registrodocente->codigo;?></td>
+            <td><?='<b>'.$registrodocente->grado.''.$registrodocente->nombreseccion.'</b> DE '.$registrodocente->nomnivel;?></td>
+            <td><?=$registrodocente->asinatura;?></td>
+            <td><center><?=$message;?>
+                &nbsp;&nbsp;&nbsp;<a target="_blank" href='<?= BASE_URL;?>registroalumno/Iview/<?=$registrodocente->CODEASINA;?>/<?=$registrodocente->seccioncode;?>/<?=$registrodocente->codigo;?>'><i class="icon icon-eye-open"></i></a>
+                &nbsp;&nbsp;&nbsp;<a target="_blank" href='<?= BASE_URL;?>registroalumno/Iedit/<?=$registrodocente->CODEASINA;?>/<?=$registrodocente->seccioncode;?>/<?=$registrodocente->codigo;?>'><i class="icon icon-pencil"></i></a></center>
+            <td><center><?=$message2;?>
+                &nbsp;&nbsp;&nbsp;<a target="_blank" href='<?= BASE_URL;?>registroalumno/IIview/<?=$registrodocente->CODEASINA;?>/<?=$registrodocente->seccioncode;?>/<?=$registrodocente->codigo;?>'><i class="icon icon-eye-open"></i></a>
+                &nbsp;&nbsp;&nbsp;<a target="_blank" href='<?= BASE_URL;?>registroalumno/IIedit/<?=$registrodocente->CODEASINA;?>/<?=$registrodocente->seccioncode;?>/<?=$registrodocente->codigo;?>'><i class="icon icon-pencil"></i></a></center>
+            <td><center><?=$message3;?>
+                &nbsp;&nbsp;&nbsp;<a target="_blank" href='<?= BASE_URL;?>registroalumno/IIIview/<?=$registrodocente->CODEASINA;?>/<?=$registrodocente->seccioncode;?>/<?=$registrodocente->codigo;?>'><i class="icon icon-eye-open"></i></a>
+                &nbsp;&nbsp;&nbsp;<a target="_blank" href='<?= BASE_URL;?>registroalumno/IIIedit/<?=$registrodocente->CODEASINA;?>/<?=$registrodocente->seccioncode;?>/<?=$registrodocente->codigo;?>'><i class="icon icon-pencil"></i></a></center>
+            <td><center><?=$message4;?>
+                &nbsp;&nbsp;&nbsp;<a target="_blank" href='<?= BASE_URL;?>registroalumno/IVview/<?=$registrodocente->CODEASINA;?>/<?=$registrodocente->seccioncode;?>/<?=$registrodocente->codigo;?>'><i class="icon icon-eye-open"></i></a>
+                &nbsp;&nbsp;&nbsp;<a target="_blank" href='<?= BASE_URL;?>registroalumno/IVedit/<?=$registrodocente->CODEASINA;?>/<?=$registrodocente->seccioncode;?>/<?=$registrodocente->codigo;?>'><i class="icon icon-pencil"></i></a></center>
+        </tr>
+    <?php endforeach;?>
+    </tbody>
+</table>
             </div>
         </div>
     </div>

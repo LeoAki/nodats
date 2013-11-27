@@ -19,7 +19,7 @@ class registroModel extends Model{
 
     public function listviewregbydocent($iddocente) {
         $list= $this->_db->query('
-            select codigo, grado, nombreseccion, nomnivel, paterno, materno, nombres, dni,CODEASINA,asinatura,I,II,III,IV,iddocente
+            select codigo, grado, nombreseccion, nomnivel, paterno, materno, nombres, dni,CODEASINA,asinatura,I,II,III,IV,iddocente,seccioncode
             from describeregistro where iddocente='.$iddocente);
         return $list->fetchall(PDO::FETCH_CLASS);
     }
